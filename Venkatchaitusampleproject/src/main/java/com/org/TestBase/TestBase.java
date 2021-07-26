@@ -6,7 +6,7 @@ public class TestBase {
 	private WebDriver driver;
 	
 	public void setUp() {
-		//Chaitu changes
+		//Chaitu updated changes
 	}
 	
 	public void quit() {
