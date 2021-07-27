@@ -8,12 +8,18 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.org.util.TestUtil;
 
+
 public class TestBase {
 	
+
 	static WebDriver driver;     // static variables can be called directly or using class name eg: prop or testbase.prop
 	static Properties prop;      // static means method or variable associated with class and not with object
 	
@@ -46,4 +52,5 @@ public class TestBase {
 			driver.get(prop.getProperty("url"));
 		}
 			
+
 	}
