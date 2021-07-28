@@ -9,12 +9,6 @@ import org.testng.annotations.Test;
 
 import com.org.TestBase.TestBase;
 import com.org.pages.InputForms;
-	
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 public class InputFormsTest extends TestBase {
 	
@@ -27,19 +21,19 @@ public class InputFormsTest extends TestBase {
 	@BeforeMethod	
 	public void setup() {
 		Initialization();
-		inputForms = new InputForms(driver);
+		inputforms = new InputForms(driver);
 		}
 	
 	@Test
 	public void getTotalTest() {
-		inputForms.Gotodemowebsite();
-		inputForms.closelightwindow();
-		inputForms.clickOnInputFormsLink();
-		inputForms.clickOnSimpleFormDemoLink();
-		inputForms.enterFirstNumber(3);
-		inputForms.enterSecondNumber(5);
-		inputForms.clickOnTotalBtn();
-		int actualTotal= Integer.parseInt(inputForms.getTotalAct());
+		inputforms.Gotodemowebsite();
+		inputforms.closelightwindow();
+		inputforms.clickOnInputFormsLink();
+		inputforms.clickOnSimpleFormDemoLink();
+		inputforms.enterFirstNumber(3);
+		inputforms.enterSecondNumber(5);
+		inputforms.clickOnTotalBtn();
+		int actualTotal= Integer.parseInt(inputforms.getTotalAct());
 		Assert.assertEquals(actualTotal, 8);
 	}
 	
