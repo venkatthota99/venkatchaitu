@@ -6,13 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
 
 import com.org.pages.InputForms;
 import com.org.util.TestUtil;
@@ -34,7 +30,8 @@ public class TestBase {
 		
 		}catch (FileNotFoundException e) {
 			e.printStackTrace();
-		}catch(IOException e) {
+		}
+		catch(IOException e) {
 			e.printStackTrace();
 		}
 	}
@@ -42,6 +39,7 @@ public class TestBase {
 		public static void Initialization() {  // void means this method has no return value
 			String browsername = prop.getProperty("browser");
 			if(browsername.equals("chrome")) {
+
 				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\drivers\\chromedriver.exe");
 				driver = new ChromeDriver();
 			}
