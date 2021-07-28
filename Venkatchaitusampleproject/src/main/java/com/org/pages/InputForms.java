@@ -37,8 +37,7 @@ public class InputForms {
 	@FindBy (xpath="//span[@id='displayvalue']")
 	private WebElement totalValAct;
 	
-	
-=======
+
 	//CheckBox	
 	@FindBy(linkText ="Checkbox Demo")
     private WebElement checkboxdemo;
@@ -101,7 +100,7 @@ public class InputForms {
 	}
 	
 	public void Gotocheckbox() {
-		this.InputForms.click();
+		this.inputForm.click();
 		this.checkboxdemo.click();
 	}
 	
@@ -114,7 +113,7 @@ public class InputForms {
 	}
 	
 	public void selectdropdownlist() {
-		this.InputForms.click();
+		this.inputForm.click();
 		this.selectdropdownlist.click();
 	}
 	
