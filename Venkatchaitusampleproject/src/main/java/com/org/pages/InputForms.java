@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.org.TestBase.TestBase;
@@ -21,7 +22,7 @@ public class InputForms {
 	@FindBy (xpath="//a[text()='Input Forms']")
 	private WebElement inputForm;
 	
-  //SimpleFormDemo
+	//SimpleFormDemo
 	@FindBy (xpath="(//li[@class='tree-branch']//a)[3]")
 	private WebElement simpleFormDemo;
 	
@@ -37,7 +38,6 @@ public class InputForms {
 	@FindBy (xpath="//span[@id='displayvalue']")
 	private WebElement totalValAct;
 	
-
 	//CheckBox	
 	@FindBy(linkText ="Checkbox Demo")
     private WebElement checkboxdemo;
@@ -48,7 +48,7 @@ public class InputForms {
 	@FindBy(xpath="//*[@id='txtAge']")
 	private WebElement checkboxmsg;
 	
-  //SelectDropdownList
+	//SelectDropdownList
 	@FindBy(linkText ="Select Dropdown List")
     private WebElement selectdropdownlist;
 	
@@ -58,6 +58,38 @@ public class InputForms {
 	@FindBy(className="selected-value")
 	private WebElement selectedmessage;
 			
+	//RadioButton
+	@FindBy (xpath="(//li[@class='tree-branch']//a)[5]")
+	private WebElement radioButtonsDemo;
+	
+	@FindBy(xpath="//input[@value='Male' and @name='gender']")
+	private WebElement selectGender;
+	
+	@FindBy(name="ageGroup")
+	private WebElement selectAgeGroup;
+	
+	@FindBy(xpath="//button[text()='Get values']")
+	private WebElement getValuesBtn;
+	
+	@FindBy(className="groupradiobutton")
+	private WebElement selectedValues;
+	
+	//Ajax Form Submit
+	@FindBy(xpath="//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[6]/a")
+	private WebElement ajaxFormSubmitLink;
+	
+	@FindBy(xpath="//input[@class='form-control']")
+	private WebElement ajaxName;
+	
+	@FindBy(xpath="//textarea[@class='form-control']")
+	private WebElement ajaxComments;
+	
+	@FindBy(xpath="//input[@id='btn-submit']")
+	private WebElement ajaxSubmitBtn;
+	
+	@FindBy(id="submit-control")
+	private WebElement ajaxSuccessMsg;
+	
 	//Initializing
 	public InputForms (WebDriver driver) {
 		  this.driver = driver;
@@ -124,5 +156,46 @@ public class InputForms {
 		
 	public String selectedmessage() {
 		  return this.selectedmessage.getText();
+	}
+	
+	public void selectGender() {
+		selectGender.click();
+	}
+	
+	public void selectradioButtonsDemoLink() {
+		radioButtonsDemo.click();
+	}
+	
+	public void selectAgeGroup() {
+		selectAgeGroup.click();
+	}
+	
+	public void clickGetValuesBtn() {
+		getValuesBtn.click();
+	}
+	
+	public boolean valuesSelected() {
+		String actualSelections = selectedValues.getText();
+		return actualSelections.contains("Male");
+	}
+	
+	public void clickOnAjaxFormSubmitLink() {
+		ajaxFormSubmitLink.click();
+	}
+	
+	public void enterAjaxName(String name) {
+		ajaxName.sendKeys(name);
+	}
+	
+	public void enterAjaxComments(String comments) {
+		ajaxComments.sendKeys(comments);
+	}
+	
+	public void clickAjaxSubmitBtn() {
+		ajaxSubmitBtn.click();
+	}
+	
+	public String getAjaxSuccessMsg() {
+		return wait.until(ExpectedConditions.visibilityOf(ajaxSuccessMsg)).getText();
 	}
 }
