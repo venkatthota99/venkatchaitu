@@ -54,6 +54,15 @@ public class InputFormsTest extends TestBase {
 	}
 	
 	@Test
+	public void ipsformsubmittest() throws InterruptedException {
+		inputforms = new InputForms(driver);
+		inputforms.Gotodemowebsite();
+		inputforms.closelightwindow();
+		inputforms.GotoInputFormSubmitLink();
+		inputforms.submitinputformwithdetails();
+	}
+
+  @Test
 	public void selectRadioButtonTest() {
 		inputforms.clickOnInputFormsLink();
 		inputforms.selectradioButtonsDemoLink();
@@ -75,6 +84,7 @@ public class InputFormsTest extends TestBase {
 		Assert.assertEquals(ajaxMsg, "Form submited Successfully!");
 	}
 	
+
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();
