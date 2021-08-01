@@ -22,12 +22,12 @@ public class InputFormsTest extends TestBase {
 	public void setup() {
 		Initialization();
 		inputforms = new InputForms(driver);
+		inputforms.Gotodemowebsite();
+		inputforms.closelightwindow();
 		}
 	
 	@Test
-	public void getTotalTest() {
-		inputforms.Gotodemowebsite();
-		inputforms.closelightwindow();
+	public void getTotalTest() {		
 		inputforms.clickOnInputFormsLink();
 		inputforms.clickOnSimpleFormDemoLink();
 		inputforms.enterFirstNumber(3);
@@ -39,9 +39,6 @@ public class InputFormsTest extends TestBase {
 	
 	@Test (priority = 1)
 	public void checkboxTest() {
-		inputforms = new InputForms(driver);
-		inputforms.Gotodemowebsite();
-		inputforms.closelightwindow();
 		inputforms.Gotocheckbox();
 		inputforms.selectcheckbox();
 		String msg = inputforms.checkboxmessage();
@@ -50,9 +47,6 @@ public class InputFormsTest extends TestBase {
 	
 	@Test (priority = 2)
 	public void selectdropdownTest() {
-		inputforms = new InputForms(driver);
-		inputforms.Gotodemowebsite();
-		inputforms.closelightwindow();
 		inputforms.selectdropdownlist();
 		inputforms.selectsunday();
 		String selmsg = inputforms.selectedmessage();
@@ -67,6 +61,29 @@ public class InputFormsTest extends TestBase {
 		inputforms.GotoInputFormSubmitLink();
 		inputforms.submitinputformwithdetails();
 	}
+
+  @Test
+	public void selectRadioButtonTest() {
+		inputforms.clickOnInputFormsLink();
+		inputforms.selectradioButtonsDemoLink();
+		inputforms.selectGender();
+		inputforms.selectAgeGroup();
+		inputforms.clickGetValuesBtn();
+		boolean actualValuesSelected = inputforms.valuesSelected();
+		Assert.assertEquals(actualValuesSelected, true);
+	}
+	
+	@Test
+	public void ajaxFormSubmitTest() {
+		inputforms.clickOnInputFormsLink();
+		inputforms.clickOnAjaxFormSubmitLink();
+		inputforms.enterAjaxName("abc");
+		inputforms.enterAjaxComments("form submission");
+		inputforms.clickAjaxSubmitBtn();
+		String ajaxMsg = inputforms.getAjaxSuccessMsg();
+		Assert.assertEquals(ajaxMsg, "Form submited Successfully!");
+	}
+	
 
 	@AfterMethod
 	public void tearDown() {
