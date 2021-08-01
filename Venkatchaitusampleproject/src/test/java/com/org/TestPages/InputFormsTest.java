@@ -58,6 +58,15 @@ public class InputFormsTest extends TestBase {
 		String selmsg = inputforms.selectedmessage();
 		Assert.assertEquals(selmsg, "Day selected :- Sunday");
 	}
+	
+	@Test
+	public void ipsformsubmittest() throws InterruptedException {
+		inputforms = new InputForms(driver);
+		inputforms.Gotodemowebsite();
+		inputforms.closelightwindow();
+		inputforms.GotoInputFormSubmitLink();
+		inputforms.submitinputformwithdetails();
+	}
 
 	@AfterMethod
 	public void tearDown() {

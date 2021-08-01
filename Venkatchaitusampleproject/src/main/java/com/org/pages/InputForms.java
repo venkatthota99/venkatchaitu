@@ -57,6 +57,47 @@ public class InputForms {
 	
 	@FindBy(className="selected-value")
 	private WebElement selectedmessage;
+	
+  //Input form Submit
+	
+	@FindBy(xpath ="//ul[@class='dropdown-menu']//a[normalize-space()='Input Form Submit']")
+    private WebElement inputformsubmitdropdown;
+		
+	@FindBy(name ="first_name")
+	private WebElement ipsfirstname;
+	
+	@FindBy(name ="last_name")
+	private WebElement ipslastname;
+	
+	@FindBy(name ="email")
+	private WebElement ipsemail;
+	
+	@FindBy(name ="phone")
+	private WebElement ipsphone;
+	
+	@FindBy(name ="address")
+	private WebElement ipsaddress;
+	
+	@FindBy(name ="city")
+	private WebElement ipscity;
+	
+	@FindBy(name ="state")
+	private WebElement ipsstate;
+	
+	@FindBy(name ="zip")
+	private WebElement ipszip;
+	
+	@FindBy(name ="website")
+	private WebElement ipswebsite;
+	
+	@FindBy(xpath ="//input[@value='yes']")
+	private WebElement ipshosting;
+		
+	@FindBy(name ="comment")
+	private WebElement ipscomment;
+	
+	@FindBy(className="//button[@type='submit' and @class='btn btn-default']")
+	private WebElement ipssubmit;
 			
 	//Initializing
 	public InputForms (WebDriver driver) {
@@ -124,5 +165,43 @@ public class InputForms {
 		
 	public String selectedmessage() {
 		  return this.selectedmessage.getText();
+	}
+	
+	// Inputformsubmit actions
+	
+	public void GotoInputFormSubmitLink() throws InterruptedException {
+		this.inputForm.click();
+		Thread.sleep(20000);	
+		this.inputformsubmitdropdown.click();
+	}
+	
+	public void submitinputformwithdetails() throws InterruptedException {
+		
+		this.ipsfirstname.sendKeys("Venkat");
+		Thread.sleep(20000);	
+		this.ipslastname.sendKeys("thota");
+		Thread.sleep(20000);
+		this.ipsemail.sendKeys("ipsemail@gmail.com");
+		Thread.sleep(20000);	
+		this.ipsphone.sendKeys("4168973233");
+		Thread.sleep(20000);	
+		this.ipsaddress.sendKeys(" tailors colony rd, nellore");
+		Thread.sleep(20000);	
+		this.ipscity.sendKeys("nellore");
+		Thread.sleep(20000);
+		Select selectips = new Select(this.ipsstate);
+		selectips.selectByIndex(3);
+		Thread.sleep(20000);	
+		this.ipszip.sendKeys("85013");
+		Thread.sleep(20000);	
+		this.ipswebsite.sendKeys("www.ipswebsite.com");
+		Thread.sleep(20000);	
+		this.ipshosting.click();
+		Thread.sleep(20000);	
+		this.ipscomment.sendKeys(" abcd  efgh  ijkl  mnop  qrst ");
+		Thread.sleep(20000);	
+		this.ipssubmit.click();	
+		Thread.sleep(20000);	
+		Thread.sleep(20000);
 	}
 }
