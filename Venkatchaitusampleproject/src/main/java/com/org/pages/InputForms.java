@@ -263,3 +263,4 @@ public class InputForms {
 	public String getAjaxSuccessMsg() {
 		return wait.until(ExpectedConditions.visibilityOf(ajaxSuccessMsg)).getText();
 }
+}
