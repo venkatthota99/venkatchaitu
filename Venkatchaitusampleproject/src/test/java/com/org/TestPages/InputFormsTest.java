@@ -54,10 +54,7 @@ public class InputFormsTest extends TestBase {
 	}
 	
 	@Test
-	public void ipsformsubmittest() throws InterruptedException {
-		inputforms = new InputForms(driver);
-		inputforms.Gotodemowebsite();
-		inputforms.closelightwindow();
+	public void ipsformsubmittest()  {
 		inputforms.GotoInputFormSubmitLink();
 		inputforms.submitinputformwithdetails();
 	}
