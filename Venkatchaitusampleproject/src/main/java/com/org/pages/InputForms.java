@@ -60,7 +60,7 @@ public class InputForms {
 	
   //Input form Submit
 	
-	@FindBy(xpath ="//ul[@class='dropdown-menu']//a[normalize-space()='Input Form Submit']")
+	@FindBy(xpath ="//li[@class='tree-branch']//ul//li//a[normalize-space()='Input Form Submit']")
     private WebElement inputformsubmitdropdown;
 		
 	@FindBy(name ="first_name")
@@ -96,7 +96,7 @@ public class InputForms {
 	@FindBy(name ="comment")
 	private WebElement ipscomment;
 	
-	@FindBy(className="//button[@type='submit' and @class='btn btn-default']")
+	@FindBy(xpath="//button[normalize-space()='Send']")
 	private WebElement ipssubmit;
 			
 	//RadioButton
@@ -202,12 +202,12 @@ public class InputForms {
 
 	// Inputformsubmit actions
 	
-	public void GotoInputFormSubmitLink() throws InterruptedException {
+	public void GotoInputFormSubmitLink()  {
 		this.inputForm.click();			
 		this.inputformsubmitdropdown.click();
 	}
 	
-	public void submitinputformwithdetails() throws InterruptedException {		
+	public void submitinputformwithdetails()  {		
 		this.ipsfirstname.sendKeys("Venkat");		
 		this.ipslastname.sendKeys("thota");		
 		this.ipsemail.sendKeys("ipsemail@gmail.com");			
